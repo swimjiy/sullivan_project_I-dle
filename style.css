@@ -1,0 +1,69 @@
+body {
+  background: linear-gradient(243.18deg, #000061 0%, #000327 100%);
+  font-family: "Noto Sans KR", sans-serif;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 72px 0px;
+}
+
+h1 {
+  color: white;
+  margin: 0px;
+  font-size: 2rem;
+}
+
+#weather-info {
+  color: white;
+  margin: 0px;
+  font-size: 1rem;
+}
+
+.weather-card-wrapper {
+  width: 25%;
+  min-width: 250px;
+}
+
+.weather-card {
+  width: 100%;
+  margin: 30px 0px;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  box-shadow: 0px 0px 30px 10px #7c3fd6;
+}
+
+#date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  margin-bottom: 4px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(94.42deg, #ff0078 0%, #803bab 100%);
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.date-card-wrapper {
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.date-card {
+  background-color: white;
+  padding: 4px 16px;
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

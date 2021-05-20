@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날씨따라 바뀌는 일러스트 만들기</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>오늘의 내 기상환경은?</h1>
+      <p id="weather-info"></p>
+      <div class="weather-card-wrapper">
+        <img
+          class="weather-card"
+          src="https://i.pinimg.com/564x/8e/59/c9/8e59c99103a94f5f45158ab567ac1018.jpg"
+        />
+      </div>
+      <div name="date-picker" id="date-picker">
+        다른 날짜도 볼래<span class="material-icons"> expand_more </span>
+      </div>
+      <div class="date-card-wrapper hidden">
+        <div class="date-card" value="20210520">2021년 5월 20일</div>
+        <div class="date-card" value="20210521">2021년 5월 21일</div>
+        <div class="date-card" value="20210522">2021년 5월 22일</div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
