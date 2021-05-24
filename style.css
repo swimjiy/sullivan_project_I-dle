@@ -2,12 +2,14 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  height: 100%;
   background: linear-gradient(243.18deg, #000061 0%, #000327 100%);
   font-family: "Noto Sans KR", sans-serif;
-  height: 100vh;
 }
 
 main {
@@ -16,29 +18,26 @@ main {
   justify-content: space-between;
   align-items: center;
   margin: 72px 0px;
+  background: url('images/bg-stars.png') center top;
 }
 
-h1 {
+.title {
   color: white;
-  margin: 0px;
   font-size: 2rem;
 }
 
-#weather-info {
+.weather-info {
   color: white;
-  margin: 0px;
   font-size: 1rem;
 }
 
 .weather-card-wrapper {
   position: relative;
-  width: 25vw;
-  min-width: 250px;
-  height: 45vw;
-  min-height: 450px;
+  width: 300px;
+  height: 500px;
   margin: 30px 0px;
   border-radius: 20px;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   box-shadow: 0px 0px 30px 10px #7c3fd6;
   overflow: hidden;
 }
@@ -48,7 +47,7 @@ h1 {
   width: 100%;
 }
 
-#date-picker {
+.date-picker {
   display: flex;
   align-items: center;
   justify-content: space-between;
