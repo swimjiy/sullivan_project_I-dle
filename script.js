@@ -2,6 +2,8 @@ const dateCardWrapper = document.querySelector(".date-card-wrapper");
 const datePicker = document.querySelector("#date-picker");
 const title = document.querySelector("#title");
 const weatherInfo = document.querySelector("#weather-info");
+const weatherImg = document.querySelector("#weather-img");
+const personImg = document.querySelector("#person-img");
 
 // 드롭다운 옵션 동적 생성
 const dates = ["2021년 5월 21일", "2021년 5월 22일", "2021년 5월 23일"];
@@ -44,22 +46,42 @@ function getWeather(lat, lon) {
       const currWeatherId = curr.weather[0].id;
       let currWeather = "";
 
+      // 날짜에 따른 UI 변경
       title.innerHTML = `${currDate}의 내 기상환경은?`;
 
+      // 기온에 따른 이미지 변경
+      if (currTemp >= 23) {
+        personImg.src = 'images/img-person1.PNG'
+      } else if (currTemp >= 15) {
+        personImg.src = 'images/img-person2.PNG'
+      } else if (currTemp >= 0) {
+        personImg.src = 'images/img-person3.PNG'
+      } else {
+        personImg.src = 'images/img-person4.PNG' 
+      }
+
+      // 날씨에 따른 UI, 이미지 변경 
       if (parseInt(currWeatherId / 100) === 2) {
         currWeather = "천둥번개";
+        weatherImg.src = 'images/img-bg2xx.JPG';
       } else if (parseInt(currWeatherId / 100) === 3) {
         currWeather = "이슬비";
+        weatherImg.src = 'images/img-bg3xx.JPG';
       } else if (parseInt(currWeatherId / 100) === 5) {
         currWeather = "비";
+        weatherImg.src = 'images/img-bg5xx.JPG';
       } else if (parseInt(currWeatherId / 100) === 6) {
         currWeather = "눈";
+        weatherImg.src = 'images/img-bg6xx.JPG';
       } else if (parseInt(currWeatherId / 100) === 7) {
         currWeather = "흐림";
+        weatherImg.src = 'images/img-bg7xx.JPG';
       } else if (currWeatherId === 800) {
         currWeather = "맑음";
+        weatherImg.src = 'images/img-bg800.JPG';
       } else if (parseInt(currWeatherId / 100) === 8) {
         currWeather = "구름 많음";
+        weatherImg.src = 'images/img-bg80x.JPG';
       }
 
       weatherInfo.innerHTML = `${currTemp}도 / ${currWeather}`;
