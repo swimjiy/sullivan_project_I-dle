@@ -18,7 +18,7 @@ main {
   justify-content: space-between;
   align-items: center;
   margin: 72px 0px;
-  background: url('images/bg-stars.png') center top;
+  background: url("images/bg-stars.png") center top;
 }
 
 .title {
@@ -32,6 +32,9 @@ main {
 }
 
 .weather-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 300px;
   height: 500px;
@@ -42,9 +45,15 @@ main {
   overflow: hidden;
 }
 
-.weather-card {
+.weather-img {
   position: absolute;
-  width: 100%;
+  height: 100%;
+}
+
+.person-img {
+  position: absolute;
+  top: 100px;
+  height: 70%;
 }
 
 .date-picker {
