@@ -4,6 +4,8 @@ const title = document.querySelector("#title");
 const weatherInfo = document.querySelector("#weather-info");
 const weatherImg = document.querySelector("#weather-img");
 const personImg = document.querySelector("#person-img");
+const dateCardWrapper = document.querySelector(".date-card-wrapper");
+const datePicker = document.querySelector("#date-picker");
 
 function timestampToDate(timestamp) {
   const fullDate = new Date(timestamp * 1000);
@@ -92,4 +94,28 @@ fetch(
 
     // 상단 날씨, 기온 변경
     weatherInfo.innerHTML = `${today.tem}도 / ${currWeather}`;
+
+    // 오늘 D+7일치 데이터 받아오기
+    const daily = data.daily;
+    let dailyList = [];
+
+    for (let i = 1; i < daily.length; i++) {
+      const dailyTimestamp = daily[i].dt;
+      const dailyDate = timestampToDate(dailyTimestamp);
+      const dailyTemp = Math.round(daily[i].temp.day - 273.15);
+      const dailyWeatherId = daily[i].weather[0].id;
+
+      dailyList.push({
+        date: dailyDate,
+        tem: dailyTemp,
+        weather: dailyWeatherId,
+      });
+    }
+
+    dailyList.map((day) => {
+      const dateOption = document.createElement("div");
+      dateOption.classList.add("date-card");
+      dateOption.innerHTML = day.date;
+      dateCardWrapper.appendChild(dateOption);
+    });
   });

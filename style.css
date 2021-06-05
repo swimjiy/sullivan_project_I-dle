@@ -47,3 +47,38 @@ main {
   top: 100px;
   height: 70%;
 }
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  padding: 12px 32px;
+  margin-bottom: 4px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(94.42deg, #ff0078 0%, #803bab 100%);
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.date-card-wrapper {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.date-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 16px 16px;
+  cursor: pointer;
+}
+
+.date-card:hover {
+  background-color: lightgray;
+}
