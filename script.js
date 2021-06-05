@@ -42,4 +42,54 @@ fetch(
     };
 
     title.innerHTML = `${today.date}의 내 기상환경은?`;
+    let currWeather = "";
+    // 상단 날짜 변경
+
+    // 이미지 카드 변경
+    if (today.tem >= 23) {
+      personImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person1.PNG?v=1622888765497";
+    } else if (today.tem >= 15) {
+      personImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person2.PNG?v=1622888763615";
+    } else if (today.tem >= 0) {
+      personImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person3.PNG?v=1622888763442";
+    } else {
+      personImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person4.PNG?v=1622888764994";
+    }
+
+    if (parseInt(today.weather / 100) === 2) {
+      currWeather = "천둥번개";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg2xx.JPG?v=1622888764135";
+    } else if (parseInt(today.weather / 100) === 3) {
+      currWeather = "이슬비";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg3xx.JPG?v=1622888764573";
+    } else if (parseInt(today.weather / 100) === 5) {
+      currWeather = "비";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg5xx.JPG?v=1622888765849";
+    } else if (parseInt(today.weather / 100) === 6) {
+      currWeather = "눈";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg6xx.JPG?v=1622888762618";
+    } else if (parseInt(today.weather / 100) === 7) {
+      currWeather = "흐림";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg7xx.JPG?v=1622888762643";
+    } else if (today.weather === 800) {
+      currWeather = "맑음";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg800.JPG?v=1622888762921";
+    } else if (parseInt(today.weather / 100) === 8) {
+      currWeather = "구름 많음";
+      weatherImg.src =
+        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg80x.JPG?v=1622888763035";
+    }
+
+    // 상단 날씨, 기온 변경
+    weatherInfo.innerHTML = `${today.tem}도 / ${currWeather}`;
   });
