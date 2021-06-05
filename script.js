@@ -126,7 +126,7 @@ fetch(
       dateOption.classList.add("date-card");
       dateOption.innerHTML = day.date;
       dateOption.addEventListener("click", (e) => {
-        console.log(day.date);
+        updateScreen(day);
       });
       dateCardWrapper.appendChild(dateOption);
     });
