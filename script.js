@@ -57,69 +57,65 @@ function updateScreen(day) {
   weatherInfo.innerHTML = `${day.tem}도 / ${currWeather}`;
 }
 
-function getWeather(lat, lon) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af`
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // data = API 호출 후 원본 데이터
-
-      const curr = data.current;
-      const currTimestamp = curr.dt;
-      const currDate = timestampToDate(currTimestamp);
-      const currTemp = Math.round(curr.temp - 273.15);
-      const currWeatherId = curr.weather[0].id;
-
-      // 오늘의 기상정보 객체 생성
-      const today = {
-        date: currDate,
-        tem: currTemp,
-        weather: currWeatherId,
-      };
-
-      updateScreen(today);
-
-      // +7일 데이터 받아오기
-
-      const daily = data.daily;
-      let dailyList = [];
-
-      for (i = 1; i < daily.length; i++) {
-        const dailyTimestamp = daily[i].dt;
-        const dailyDate = timestampToDate(dailyTimestamp);
-        const dailyTemp = Math.round(daily[i].temp.day - 273.15);
-        const dailyWeatherId = daily[i].weather[0].id;
-
-        dailyList.push({
-          date: dailyDate,
-          tem: dailyTemp,
-          weather: dailyWeatherId,
-        });
-      }
-
-      // 날짜 선택 드롭다운 버튼 클릭해서 옵션 열고 닫기
-      datePicker.addEventListener("click", (e) => {
-        dateCardWrapper.classList.toggle("hidden");
-      });
-
-      // 날짜 선택지 생성 및 이벤트 부착
-      dailyList.map((day) => {
-        const dateOption = document.createElement("div");
-        dateOption.classList.add("date-card");
-        dateOption.innerHTML = day.date;
-        dateOption.addEventListener("click", (e) => {
-          updateScreen(day);
-        });
-        dateCardWrapper.appendChild(dateOption);
-      });
-    });
-}
-
 // 위도 경도 입력
 const lat = 37.477550020716194;
 const lon = 126.98212524649105;
 
-getWeather(lat, lon);
+fetch(
+  `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af`
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    // data = API 호출 후 원본 데이터
+
+    const curr = data.current;
+    const currTimestamp = curr.dt;
+    const currDate = timestampToDate(currTimestamp);
+    const currTemp = Math.round(curr.temp - 273.15);
+    const currWeatherId = curr.weather[0].id;
+
+    // 오늘의 기상정보 객체 생성
+    const today = {
+      date: currDate,
+      tem: currTemp,
+      weather: currWeatherId,
+    };
+
+    updateScreen(today);
+
+    // +7일 데이터 받아오기
+
+    const daily = data.daily;
+    let dailyList = [];
+
+    for (i = 1; i < daily.length; i++) {
+      const dailyTimestamp = daily[i].dt;
+      const dailyDate = timestampToDate(dailyTimestamp);
+      const dailyTemp = Math.round(daily[i].temp.day - 273.15);
+      const dailyWeatherId = daily[i].weather[0].id;
+
+      dailyList.push({
+        date: dailyDate,
+        tem: dailyTemp,
+        weather: dailyWeatherId,
+      });
+    }
+
+    // 날짜 선택 드롭다운 버튼 클릭해서 옵션 열고 닫기
+    datePicker.addEventListener("click", (e) => {
+      dateCardWrapper.classList.toggle("hidden");
+    });
+
+    // 날짜 선택지 생성 및 이벤트 부착
+    dailyList.map((day) => {
+      const dateOption = document.createElement("div");
+      dateOption.classList.add("date-card");
+      dateOption.innerHTML = day.date;
+      dateOption.addEventListener("click", (e) => {
+        updateScreen(day);
+      });
+      dateCardWrapper.appendChild(dateOption);
+    });
+  });
