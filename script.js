@@ -115,6 +115,7 @@ fetch(
       dateOption.innerHTML = day.date;
       dateOption.addEventListener("click", (e) => {
         updateScreen(day);
+        window.scroll({ top: 0, behavior: "smooth" });
       });
       dateCardWrapper.appendChild(dateOption);
     });
