@@ -90,7 +90,7 @@ fetch(
     const daily = data.daily;
     let dailyList = [];
 
-    for (i = 1; i < daily.length; i++) {
+    for (let i = 1; i < daily.length; i++) {
       const dailyTimestamp = daily[i].dt;
       const dailyDate = timestampToDate(dailyTimestamp);
       const dailyTemp = Math.round(daily[i].temp.day - 273.15);
@@ -104,20 +104,20 @@ fetch(
     }
 
     // 날짜 선택 드롭다운 버튼 클릭해서 옵션 열고 닫기
-    datePicker.addEventListener("click", (e) => {
+    datePicker.addEventListener("click", function () {
       dateCardWrapper.classList.toggle("hidden");
     });
 
     // 날짜 선택지 생성 및 이벤트 부착
-    dailyList.map((day) => {
+    for (let i = 0; i < dailyList.length - 1; i++) {
       const dateOption = document.createElement("div");
       dateOption.classList.add("date-card");
-      dateOption.innerHTML = day.date;
+      dateOption.innerHTML = dailyList[i].date;
       dateOption.addEventListener("click", (e) => {
-        updateScreen(day);
+        updateScreen(dailyList[i]);
         dateCardWrapper.classList.toggle("hidden");
         window.scroll({ top: 0, behavior: "smooth" });
       });
       dateCardWrapper.appendChild(dateOption);
-    });
+    }
   });
