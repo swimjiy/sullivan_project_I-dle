@@ -25,12 +25,12 @@ main {
 
 .title {
   color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .weather-info {
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .weather-card-wrapper {
@@ -67,7 +67,7 @@ main {
   border-radius: 100px;
   border: none;
   background: linear-gradient(94.42deg, #ff0078 0%, #803bab 100%);
-  font-size: 1rem;
+  font-size: 16px;
   color: white;
   cursor: pointer;
 }
