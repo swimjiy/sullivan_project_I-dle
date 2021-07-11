@@ -109,7 +109,7 @@ fetch(
     });
 
     // 날짜 선택지 생성 및 이벤트 부착
-    for (let i = 0; i < dailyList.length - 1; i++) {
+    for (let i = 0; i < dailyList.length; i++) {
       const dateOption = document.createElement("div");
       dateOption.classList.add("date-card");
       dateOption.innerHTML = dailyList[i].date;
