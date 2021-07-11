@@ -62,7 +62,7 @@ const lat = 37.477550020716194;
 const lon = 126.98212524649105;
 
 fetch(
-  `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af`
+  `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af`
 )
   .then(function (response) {
     return response.json();
@@ -73,7 +73,7 @@ fetch(
     const curr = data.current;
     const currTimestamp = curr.dt;
     const currDate = timestampToDate(currTimestamp);
-    const currTemp = Math.round(curr.temp - 273.15);
+    const currTemp = Math.round(curr.temp);
     const currWeatherId = curr.weather[0].id;
 
     // 오늘의 기상정보 객체 생성
@@ -93,7 +93,7 @@ fetch(
     for (let i = 1; i < daily.length; i++) {
       const dailyTimestamp = daily[i].dt;
       const dailyDate = timestampToDate(dailyTimestamp);
-      const dailyTemp = Math.round(daily[i].temp.day - 273.15);
+      const dailyTemp = Math.round(daily[i].temp.day);
       const dailyWeatherId = daily[i].weather[0].id;
 
       dailyList.push({
