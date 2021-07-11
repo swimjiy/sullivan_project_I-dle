@@ -62,7 +62,7 @@ const lat = 37.477550020716194;
 const lon = 126.98212524649105;
 
 fetch(
-  `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af&units=metric`
+  `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appId=2fa3f03d3732cc2adffbdcc9cd0ff4af`
 )
   .then(function (response) {
     return response.json();
