@@ -49,47 +49,36 @@ fetch(
 
     // 이미지 카드 변경
     if (today.tem >= 23) {
-      personImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person1.PNG?v=1622888765497";
+      personImg.src = "images/img-person1.PNG";
     } else if (today.tem >= 15) {
-      personImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person2.PNG?v=1622888763615";
+      personImg.src = "images/img-person2.PNG";
     } else if (today.tem >= 0) {
-      personImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person3.PNG?v=1622888763442";
+      personImg.src = "images/img-person3.PNG";
     } else {
-      personImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-person4.PNG?v=1622888764994";
+      personImg.src = "images/img-person4.PNG";
     }
 
     if (parseInt(today.weather / 100) === 2) {
       currWeather = "천둥번개";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg2xx.JPG?v=1622888764135";
+      weatherImg.src = "images/img-bg2xx.JPG";
     } else if (parseInt(today.weather / 100) === 3) {
       currWeather = "이슬비";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg3xx.JPG?v=1622888764573";
+      weatherImg.src = "images/img-bg3xx.JPG";
     } else if (parseInt(today.weather / 100) === 5) {
       currWeather = "비";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg5xx.JPG?v=1622888765849";
+      weatherImg.src = "images/img-bg5xx.JPG";
     } else if (parseInt(today.weather / 100) === 6) {
       currWeather = "눈";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg6xx.JPG?v=1622888762618";
+      weatherImg.src = "images/img-bg6xx.JPG";
     } else if (parseInt(today.weather / 100) === 7) {
       currWeather = "흐림";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg7xx.JPG?v=1622888762643";
+      weatherImg.src = "images/img-bg7xx.JPG";
     } else if (today.weather === 800) {
       currWeather = "맑음";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg800.JPG?v=1622888762921";
+      weatherImg.src = "images/img-bg800.JPG";
     } else if (parseInt(today.weather / 100) === 8) {
       currWeather = "구름 많음";
-      weatherImg.src =
-        "https://cdn.glitch.com/6e02023b-7f95-461c-b86c-1b131880f401%2Fimg-bg80x.JPG?v=1622888763035";
+      weatherImg.src = "images/img-bg80x.JPG";
     }
 
     // 상단 날씨, 기온 변경
